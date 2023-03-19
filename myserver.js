@@ -18,12 +18,12 @@ var port = process.env.port || 2410;
 app.listen(port, () => console.log(`Node app listening on port ${port} !`));
 let axios = require("axios");
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
+// app.use(cors(corsOptions));
 
 app.post("/myserver", async function (req, res) {
   let rep = req.body;
