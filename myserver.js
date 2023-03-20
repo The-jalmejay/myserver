@@ -1,6 +1,5 @@
 express = require("express");
 let app = express();
-let cors = require("cors");
 app.use(express.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -10,20 +9,14 @@ app.use(function (req, res, next) {
   );
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin,X-Requested-With,Content-Type,Accept"
+    "Origin,X-Requested-With,Content-Type,Accept,Authorization"
   );
   next();
 });
-var port = process.env.port || 2410;
+var port = process.env.PORT || 2410;
 app.listen(port, () => console.log(`Node app listening on port ${port} !`));
 let axios = require("axios");
 
-// const corsOptions = {
-//   origin: "http://localhost:3000",
-//   credentials: true, //access-control-allow-credentials:true
-//   optionSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
 
 app.post("/myserver", async function (req, res) {
   let rep = req.body;
